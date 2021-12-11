@@ -1,0 +1,69 @@
+import csv
+import itertools
+
+file = open("file_example_csv_5000-1.csv")
+csvreader = csv.reader(file)
+header = next(csvreader)
+
+rows = []
+for row in csvreader:
+    rows.append(row)
+
+
+#to merge as a single list
+
+list2d = rows
+merged = list(itertools.chain(*list2d))
+
+
+#  to convert a list to string
+    
+# Function to convert  
+def listToString(s): 
+    
+    # initialize an empty string
+    str1 = "" 
+    
+    # traverse in the string  
+    for ele in s: 
+        str1 += ele  
+    
+    # return string  
+    return str1 
+        
+        
+# Driver code    
+s = merged
+convertedList = listToString(s)
+
+
+#  print the characters and
+# frequencies in order of its occurrence
+from collections import Counter
+
+def prCharWithFreq(string):
+
+
+    # Store all characters and their
+    # frequencies suing Counter function
+    d = Counter(string)
+    
+    # Print characters and their frequencies in
+    # same order of their appearance
+    for i in d:
+         print(i+"->"+str(d[i]), end=",")
+
+        
+
+string = convertedList
+prCharWithFreq(string)
+
+
+#print(string)
+#freqstring = prCharWithFreq(string)
+#s =  freqstring
+
+#print(f'List of Words ={s.split()}')
+
+
+
